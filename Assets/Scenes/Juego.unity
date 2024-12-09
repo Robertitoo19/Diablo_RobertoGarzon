@@ -5930,6 +5930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 791730148}
+  - component: {fileID: 791730149}
   m_Layer: 5
   m_Name: DialogueSystem
   m_TagString: Untagged
@@ -5949,8 +5950,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2074364856}
-  - {fileID: 1607289989}
+  - {fileID: 803887362}
   m_Father: {fileID: 1880912450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5958,6 +5958,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &791730149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791730147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c3f58990082724bb731b8f6cc7faf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &795032956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6037,6 +6049,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 795032956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &803887361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 803887362}
+  m_Layer: 5
+  m_Name: Marcos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &803887362
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803887361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2074364856}
+  - {fileID: 1607289989}
+  m_Father: {fileID: 791730148}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -464.88, y: -302.27588}
+  m_SizeDelta: {x: 749.76, y: 435.28714}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &824168909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9881,9 +9930,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1542108995}
   - component: {fileID: 1542108994}
+  - component: {fileID: 1542108996}
   - component: {fileID: 1542108993}
   - component: {fileID: 1542108992}
-  - component: {fileID: 1542108996}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -9992,6 +10041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28fa268cc5026a40a51d1f72feb5e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myDialogue: {fileID: 11400000, guid: 11dd7894e6e9360479ccb6657da53ddd, type: 2}
   rotateDuration: 1
 --- !u!1001 &1575080928
 PrefabInstance:
@@ -10214,18 +10264,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607289988}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 236673892}
-  m_Father: {fileID: 791730148}
+  m_Father: {fileID: 803887362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: -180, y: 200}
+  m_AnchoredPosition: {x: 464.88, y: 99.999985}
+  m_SizeDelta: {x: 990.24, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1607289990
 MonoBehaviour:
@@ -13349,11 +13399,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1288915138}
-  m_Father: {fileID: 791730148}
+  m_Father: {fileID: 803887362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.047000002, y: 0.20400001}
   m_AnchorMax: {x: 0.047000002, y: 0.20400001}
-  m_AnchoredPosition: {x: 165, y: 100}
+  m_AnchoredPosition: {x: 99.76129, y: 211.48856}
   m_SizeDelta: {x: 270, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074364857

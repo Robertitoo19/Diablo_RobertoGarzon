@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+    [SerializeField] private DialogueSO myDialogue;
     [SerializeField] private float rotateDuration;
     void Start()
     {
@@ -16,6 +17,11 @@ public class NPC : MonoBehaviour
     }
     public void Interact(Transform interactuator)
     {
-        transform.DOLookAt(interactuator.position, rotateDuration, AxisConstraint.Y);
+        //rota hacia el interactuador y cuando termine se inicia la interaccion.
+        transform.DOLookAt(interactuator.position, rotateDuration, AxisConstraint.Y).OnComplete(StartInteraction);
+    }
+    private void StartInteraction()
+    {
+        DialogueSystem.System.StartDialogue(myDialogue);
     }
 }
