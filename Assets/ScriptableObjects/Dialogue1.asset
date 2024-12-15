@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c0a490790359740819b5d113084932, type: 3}
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
-  prhases:
-  - Hola que ase vaya aventuras guapas te esperan bro.
-  - Pillame por ahi algo bro que estoy to semao aqui y me da pereza.
-  - Cogele al jhony una birra y me la traes loco va te pago algo.
+  phrases:
+  - "\xA1Ah, un visitante inesperado! Solo aquellos dignos se aventuran hasta aqui.
+    Si buscas gloria o fortuna, prueba tu valia enfrentandote al guardian del tercer
+    nivel y recuperando el cristal que protege."
+  - El guardian del tercer nivel es una criatura feroz, su fuerza reside en la oscuridad
+    que lo rodea.
+  - 'El cristal esta sellado en un pedestal de runas magicas. Para liberarlo, debes
+    colocar las tres piedras runicas que encontraras en las salas laterales. Cuidado,
+    cada piedra esta protegida por un acertijo o trampa.
+
+'
   timebetLetters: 0.02

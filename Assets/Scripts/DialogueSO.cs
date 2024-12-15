@@ -6,6 +6,6 @@ using UnityEngine;
 public class DialogueSO : ScriptableObject
 {
     [TextArea]
-    public string[] prhases;
+    public string[] phrases;
     public float timebetLetters; 
 }
