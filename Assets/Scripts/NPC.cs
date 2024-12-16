@@ -7,6 +7,7 @@ public class NPC : MonoBehaviour
 {
     [SerializeField] private DialogueSO myDialogue;
     [SerializeField] private float rotateDuration;
+    [SerializeField] private Transform cameraPoint; //punto camara de cada npc.
     void Start()
     {
         
@@ -22,6 +23,6 @@ public class NPC : MonoBehaviour
     }
     private void StartInteraction()
     {
-        DialogueSystem.System.StartDialogue(myDialogue);
+        DialogueSystem.System.StartDialogue(myDialogue, cameraPoint);
     }
 }

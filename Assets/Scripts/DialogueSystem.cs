@@ -10,6 +10,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private TMP_Text dialogueTxt;
     [SerializeField] private GameObject dialogueFrame;
 
+    [SerializeField] private Transform npcCamera;
+
     private bool writing;
     private int actualPhraseIndex = 0;
 
@@ -25,12 +27,14 @@ public class DialogueSystem : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void StartDialogue(DialogueSO dialogue)
+    public void StartDialogue(DialogueSO dialogue, Transform cameraPoint)
     {
         Time.timeScale = 0;
         //El dialogo actual que tenemos que tratar es el que me pasan por parámetro.
         actualDialogue = dialogue;
         dialogueFrame.SetActive(true);
+        //posicionar y rotar camara al punto.
+        npcCamera.SetPositionAndRotation(cameraPoint.position, cameraPoint.rotation);
         StartCoroutine(WritePhrase());
     }
     private IEnumerator WritePhrase()

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c0a490790359740819b5d113084932, type: 3}
+  m_Name: Dialogue2
+  m_EditorClassIdentifier: 
+  phrases:
+  - "\xA1Ah, un visitante inesperado! Solo aquellos dignos se aventuran hasta aqui.
+    Si buscas gloria o fortuna, prueba tu valia enfrentandote al guardian del tercer
+    nivel y recuperando el cristal que protege."
+  - El guardian del tercer nivel es una criatura feroz, su fuerza reside en la oscuridad
+    que lo rodea.
+  - 'El cristal esta sellado en un pedestal de runas magicas. Para liberarlo, debes
+    colocar las tres piedras runicas que encontraras en las salas laterales. Cuidado,
+    cada piedra esta protegida por un acertijo o trampa.
+
+'
+  timebetLetters: 0.02
