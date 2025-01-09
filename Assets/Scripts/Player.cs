@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
             //crear rayo desde la cam a la pos del raton.
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             //si el rayo impacta.
-            if(Physics.Raycast(ray, out RaycastHit hitInfo))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
                 //vas pa ya. Destino el punto impacto del rayo.
                 agent.SetDestination(hitInfo.point);

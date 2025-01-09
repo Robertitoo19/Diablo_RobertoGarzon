@@ -6,8 +6,12 @@ using UnityEngine.AI;
 
 public class PatrolSystem : MonoBehaviour
 {
+    [SerializeField] private Enemy main;
+
     [SerializeField] private Transform route;
     [SerializeField] private NavMeshAgent agent;
+
+    [SerializeField] private float patrollVelocity;
 
     private List<Vector3> pointLists = new List<Vector3>();
     //indice del punto
@@ -16,6 +20,8 @@ public class PatrolSystem : MonoBehaviour
     private Vector3 actualDestination; 
     private void Awake()
     {
+        //decirle al script principal que soy el sistema de patrulla
+        main.Patroll = this;
         foreach (Transform point in route)
         {
             pointLists.Add(point.position);
@@ -24,6 +30,10 @@ public class PatrolSystem : MonoBehaviour
     void Start()
     {
         StartCoroutine(PatrollAndWait());
+    }
+    private void OnEnable()
+    {
+        agent.speed = patrollVelocity;
     }
     void Update()
     {
@@ -53,5 +63,15 @@ public class PatrolSystem : MonoBehaviour
         }
 
         actualDestination = pointLists[actualIndexDestination];
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            //paramos la corrutina de patrulla
+            StopAllCoroutines();
+            //activar el combate e ir a por el target
+            main.ActiveCombat(other.transform);
+        }
     }
 }
