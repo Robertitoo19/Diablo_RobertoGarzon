@@ -14,20 +14,26 @@ public class Enemy : MonoBehaviour
     public CombatSystem Combat { get => combat; set => combat = value; }
     public Transform Target { get => target; set => target = value; }
 
-    public void ActiveCombat(Transform target) 
-    {
-        patroll.enabled = false;
-        combat.enabled = true;
-        //Definir el target
-        this.target = target;
-    }
+
 
     void Start()
     {
-        
+        patroll.enabled = true;
     }
     void Update()
     {
         
+    }
+    public void ActiveCombat(Transform target) 
+    {
+        //Definir el target
+        this.target = target;
+
+        combat.enabled = true;
+    }
+    public void ActivePatroll()
+    {
+        combat.enabled = false;
+        patroll.enabled = true;
     }
 }

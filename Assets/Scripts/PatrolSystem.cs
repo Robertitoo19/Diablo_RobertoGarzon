@@ -29,11 +29,12 @@ public class PatrolSystem : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(PatrollAndWait());
     }
     private void OnEnable()
     {
+        agent.stoppingDistance = 0;
         agent.speed = patrollVelocity;
+        StartCoroutine(PatrollAndWait());
     }
     void Update()
     {
