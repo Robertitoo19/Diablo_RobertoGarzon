@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cofre : MonoBehaviour
+public class Cofre : MonoBehaviour, IInteractable
 {
     private Outline outline;
 
@@ -25,5 +25,10 @@ public class Cofre : MonoBehaviour
     {
         Cursor.SetCursor(defaultIcon, Vector2.zero, CursorMode.Auto);
         outline.enabled = false;
+    }
+
+    public void interact()
+    {
+
     }
 }

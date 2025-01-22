@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, Idamagable
 {
     private PatrolSystem patroll;
     private CombatSystem combat;
@@ -35,5 +35,10 @@ public class Enemy : MonoBehaviour
     {
         combat.enabled = false;
         patroll.enabled = true;
+    }
+
+    public void ReceiveDamage(float enemyDamage)
+    {
+
     }
 }

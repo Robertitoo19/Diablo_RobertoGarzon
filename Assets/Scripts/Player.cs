@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, Idamagable
 {
     private Camera cam;
     private NavMeshAgent agent;
@@ -57,5 +57,10 @@ public class Player : MonoBehaviour
         {
             agent.stoppingDistance = 0f;
         }
+    }
+
+    public void ReceiveDamage(float enemyDamage)
+    {
+
     }
 }
