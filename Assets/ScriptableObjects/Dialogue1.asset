@@ -24,3 +24,5 @@ MonoBehaviour:
 
 '
   timebetLetters: 0.02
+  hasMission: 1
+  mission: {fileID: 11400000, guid: 06a4486284422924394d81d68f17ce80, type: 2}

@@ -7,5 +7,8 @@ public class DialogueSO : ScriptableObject
 {
     [TextArea]
     public string[] phrases;
-    public float timebetLetters; 
+    public float timebetLetters;
+
+    public bool hasMission;
+    public MissionSO mission;
 }

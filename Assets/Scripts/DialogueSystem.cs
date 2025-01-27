@@ -16,6 +16,8 @@ public class DialogueSystem : MonoBehaviour
     private int actualPhraseIndex = 0;
 
     private DialogueSO actualDialogue;
+
+    [SerializeField] private EventManagerSO eventManager;
     void Awake()
     {
         if (System == null)
@@ -101,6 +103,11 @@ public class DialogueSystem : MonoBehaviour
 
         //Posteriores dialogos empezemos desde indice 0.
         actualPhraseIndex = 0;
+
+        if (actualDialogue.hasMission)
+        {
+            eventManager.NewMission(actualDialogue.mission);
+        }
 
         //Ya no hay dialogo que escribir.
         actualDialogue = null; 

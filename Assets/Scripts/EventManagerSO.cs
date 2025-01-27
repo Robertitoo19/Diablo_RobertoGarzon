@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Event Manager")]
 public class EventManagerSO : ScriptableObject
 {
-    void Start()
+    public event Action<MissionSO> OnNewMission;
+    public event Action OnNoMission;
+    public void NewMission(MissionSO mission)
     {
-        
-    }
-    void Update()
-    {
-        
+        //notificar evento con parametro de entrada
+        OnNewMission?.Invoke(mission);
     }
 }
