@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IInteractable 
 {
-    public void interact();
+    public void interact(Transform interactor);
 }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d198fdeb9ec2a3c4ea7f156f5ea3539c, type: 3}
   m_Name: Mission
   m_EditorClassIdentifier: 
-  inicialmessage: 
-  finalmessage: 
-  hasrepetition: 0
-  totalRepetitions: 0
+  inicialmessage: Recupera las tres runas
+  finalmessage: Vuelve con el guardian
+  hasrepetition: 1
+  totalRepetitions: 3
   missionIndex: 0
   actualRepetition: 0

@@ -844,6 +844,7 @@ MonoBehaviour:
   dialogueTxt: {fileID: 59078325331020962}
   dialogueFrame: {fileID: 3006173961022453760}
   npcCamera: {fileID: 291436131181368930}
+  eventManager: {fileID: 11400000, guid: 1d127fcc5c212e34eb41c88253c5d1a6, type: 2}
 --- !u!1 &8720301058692124086
 GameObject:
   m_ObjectHideFlags: 0

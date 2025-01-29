@@ -40,14 +40,14 @@ public class Player : MonoBehaviour, Idamagable
     private void CheckInteract()
     {
         //si hay ultimo hit y tiene el script npc.
-        if (lastHit != null && lastHit.TryGetComponent(out NPC scriptNPC))
+        if (lastHit != null && lastHit.TryGetComponent(out IInteractable interactable))
         {
             //actualiza distancia de parada.
             agent.stoppingDistance = interactDistance;
             //si hemos llegado al destino.
             if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
             {
-                scriptNPC.Interact(transform);
+                interactable.interact(transform);
                 //borramos el historial del ultimo click
                 lastHit = null;
             }

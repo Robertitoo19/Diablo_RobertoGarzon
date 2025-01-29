@@ -27,8 +27,7 @@ public class Cofre : MonoBehaviour, IInteractable
         outline.enabled = false;
     }
 
-    public void interact()
+    public void interact(Transform interactor)
     {
-
     }
 }

@@ -12,19 +12,40 @@ public class MissionSystem : MonoBehaviour
     {
         //suscribirse al evento y vincular al metodo
         eventManager.OnNewMission += TurnOnToggleMission;
+        eventManager.OnUpdateMission += UpdateToggleMission;
+        eventManager.OnNoMission += FinishToggleMission;
+    }
+    private void OnDisable()
+    {
+        eventManager.OnNewMission -= TurnOnToggleMission;
+        eventManager.OnUpdateMission -= UpdateToggleMission;
+        eventManager.OnNoMission -= FinishToggleMission;
     }
 
     private void TurnOnToggleMission(MissionSO mission)
     {
-        togg   
+        //texto con el contenido de la misiom
+        missionToggles[mission.missionIndex].MissionText.text = mission.inicialmessage;
+        //si tiene repeticion
+        if (mission.hasrepetition)
+        {
+            missionToggles[mission.missionIndex].MissionText.text += " (" + mission.actualRepetition + " / " + mission.totalRepetitions + ")";
+        }
+        //endender toggle para q se vea en pantalla
+        missionToggles[mission.missionIndex].gameObject.SetActive(true);   
+    }
+    private void UpdateToggleMission(MissionSO mission)
+    {
+        missionToggles[mission.missionIndex].MissionText.text = mission.inicialmessage;
+        missionToggles[mission.missionIndex].MissionText.text += " (" + mission.actualRepetition + " / " + mission.totalRepetitions + ")";
+    }
+    private void FinishToggleMission(MissionSO mission)
+    {
+        //poner el tick en true
+        missionToggles[mission.missionIndex].ToggleVisual.isOn = true;
+        //poner texto de conseguido
+        missionToggles[mission.missionIndex].MissionText.text = mission.finalmessage;
     }
 
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
+
 }

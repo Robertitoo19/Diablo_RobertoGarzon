@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,6 @@ public class MissionSO : ScriptableObject
     public bool hasrepetition;
     public int totalRepetitions;
     public int missionIndex;
-
+    [NonSerialized] //para que el campo resetee entre partidas
     public int actualRepetition;
 }
