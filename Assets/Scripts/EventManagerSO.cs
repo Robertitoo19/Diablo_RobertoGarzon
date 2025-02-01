@@ -9,6 +9,7 @@ public class EventManagerSO : ScriptableObject
     public event Action<MissionSO> OnNewMission;
     public event Action<MissionSO> OnUpdateMission;
     public event Action<MissionSO> OnNoMission;
+
     public void NewMission(MissionSO mission)
     {
         //notificar evento con parametro de entrada

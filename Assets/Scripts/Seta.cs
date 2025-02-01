@@ -12,12 +12,15 @@ public class Seta : MonoBehaviour, IInteractable
     [SerializeField] private EventManagerSO eventManager;
 
     [SerializeField] private MissionSO mission;
+
+    [SerializeField] private Riddle riddle;
     private void Awake()
     {
         outline = GetComponent<Outline>();
     }
     public void interact(Transform interactor)
     {
+        riddle.ShowRiddle();
         //aumentar la repeticion
         mission.actualRepetition++;
 
@@ -43,5 +46,4 @@ public class Seta : MonoBehaviour, IInteractable
         outline.enabled = false;
         Cursor.SetCursor(defaultIcon, Vector2.zero, CursorMode.Auto);
     }
-
 }
