@@ -6,8 +6,8 @@ public class Cofre : MonoBehaviour, IInteractable
 {
     private Outline outline;
 
-    [SerializeField] private Texture2D interactIcon;
     [SerializeField] private Texture2D defaultIcon;
+    [SerializeField] private Texture2D interactIcon;
     void Start()
     {
         outline = GetComponent<Outline>();

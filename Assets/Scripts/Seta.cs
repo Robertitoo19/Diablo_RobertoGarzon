@@ -6,6 +6,9 @@ public class Seta : MonoBehaviour, IInteractable
 {
     private Outline outline;
 
+    [SerializeField] private Texture2D defaultIcon;
+    [SerializeField] private Texture2D interactIcon;
+
     [SerializeField] private EventManagerSO eventManager;
 
     [SerializeField] private MissionSO mission;
@@ -30,7 +33,15 @@ public class Seta : MonoBehaviour, IInteractable
         }
         Destroy(gameObject);
     }
-    private void OnMouseEnter() => outline.enabled = true;
-    private void OnMouseExit() => outline.enabled = false;
+    private void OnMouseEnter()
+    {
+        outline.enabled = true;
+        Cursor.SetCursor(interactIcon, Vector2.zero, CursorMode.Auto);
+    }
+    private void OnMouseExit()
+    {
+        outline.enabled = false;
+        Cursor.SetCursor(defaultIcon, Vector2.zero, CursorMode.Auto);
+    }
 
 }
