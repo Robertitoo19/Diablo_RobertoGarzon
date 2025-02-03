@@ -27,7 +27,7 @@ public class Riddle : MonoBehaviour
 
         correctAnswer = 2;
 
-        for (int i = 0; i < correctAnswer; i++)
+        for (int i = 0; i < buttonsAnswers.Length; i++)
         {
             int index = i;
             buttonsAnswers[i].onClick.AddListener(() => CheckAnswer(index)); 
@@ -36,8 +36,10 @@ public class Riddle : MonoBehaviour
 
     private void CheckAnswer(int Choosen)
     {
+        Debug.Log(Choosen);
         if (Choosen == correctAnswer)
         {
+            Debug.Log("sfffff");
             riddlePanel.SetActive(false);
         }
 
