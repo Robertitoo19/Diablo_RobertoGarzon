@@ -36,16 +36,15 @@ public class Riddle : MonoBehaviour
 
     private void CheckAnswer(int Choosen)
     {
-        Debug.Log(Choosen);
         if (Choosen == correctAnswer)
         {
-            Debug.Log("sfffff");
             riddlePanel.SetActive(false);
+            Time.timeScale = 1.0f;
         }
-
     }
     public void ShowRiddle()
     {
         riddlePanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
