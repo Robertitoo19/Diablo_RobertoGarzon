@@ -88,13 +88,16 @@ public class Player : MonoBehaviour, Idamagable
     }
     public void Attack()
     {
-        currentTarget.GetComponent<Idamagable>().ReceiveDamage(attackDamage);
+        if(currentTarget != null)
+        {
+            currentTarget.GetComponent<Idamagable>().ReceiveDamage(attackDamage);
+        }
     }
     public void ReceiveDamage(float enemyDamage)
     {
-        lifes -= enemyDamage;
+        actualLifes -= enemyDamage;
         healthBar.fillAmount = actualLifes / lifes;
-        if (lifes <= 0)
+        if (actualLifes <= 0)
         {
             Destroy(this);
             playerVisual.DeathAnim();

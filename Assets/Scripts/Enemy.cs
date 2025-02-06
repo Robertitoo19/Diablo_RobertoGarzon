@@ -8,15 +8,19 @@ public class Enemy : MonoBehaviour, Idamagable
 {
     [SerializeField] private float initialLifes;
 
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject canvas;
 
     [SerializeField] private Image healthBar;
 
     [SerializeField] private Collider coll;
 
+    [SerializeField] private EnemyAnims enemyVisual;
+
+    [SerializeField] private Texture2D defaultIcon;
+    [SerializeField] private Texture2D interactIcon;
+
     private PatrolSystem patroll;
     private CombatSystem combat;
-    private EnemyAnims enemyVisual;
     private Transform target;
 
     private float actualLifes;
@@ -65,7 +69,6 @@ public class Enemy : MonoBehaviour, Idamagable
             Death();
         }
     }
-
     private void Death()
     {
         Destroy(canvas);
@@ -74,5 +77,13 @@ public class Enemy : MonoBehaviour, Idamagable
         Destroy(patroll.gameObject);
         Destroy(gameObject,3);
         enemyVisual.DeathAnim();
+    }
+    private void OnMouseEnter()
+    {
+        Cursor.SetCursor(interactIcon, Vector2.zero, CursorMode.Auto);
+    }
+    private void OnMouseExit()
+    {
+        Cursor.SetCursor(defaultIcon, Vector2.zero, CursorMode.Auto);
     }
 }
