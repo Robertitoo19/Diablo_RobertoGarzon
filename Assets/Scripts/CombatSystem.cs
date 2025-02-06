@@ -11,6 +11,7 @@ public class CombatSystem : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float combatVelocity;
     [SerializeField] private float attackDistance;
+    [SerializeField] private float attackDamage;
     [SerializeField] private Animator anim;
 
     private void Awake()
@@ -37,7 +38,7 @@ public class CombatSystem : MonoBehaviour
             //cuando el objetivo este a distancia de ataque
             if(!agent.pathPending && agent.remainingDistance <= attackDistance)
             {
-                anim.SetBool("isAttacking", true);
+                anim.SetBool("IsAttacking", true);
             }
         }
         else
@@ -57,14 +58,18 @@ public class CombatSystem : MonoBehaviour
         //aplicar rotacion
         transform.rotation = targetRotation;
     }
-    #region Ejecutados por evento de animacion
-    private void Attack()
+    public void Attack()
     {
-        
+        main.Target.GetComponent<Idamagable>().ReceiveDamage(attackDamage);
+    }
+    #region Ejecutados por evento de animacion
+    private void AttackAnim()
+    {
+        anim.SetBool("IsAttacking", true);
     }
     private void EndAttackAnim()
     {
-
+        anim.SetBool("IsAttacking", false);
     }
     #endregion
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,34 @@ using UnityEngine.AI;
 
 public class PlayerVisual : MonoBehaviour
 {
-    private Animator anim;
+    [SerializeField] private Player mainScript;
     [SerializeField] NavMeshAgent agent;
-    void Start()
+    private Animator anim;
+
+
+    private void Awake()
     {
         anim = GetComponent<Animator>();
+        mainScript.PlayerVisual = this;
     }
     void Update()
     {
         anim.SetFloat("Velocity", agent.velocity.magnitude / agent.speed);
+    }
+    private void MakeAttack()
+    {
+        mainScript.Attack();
+    }
+    public void StartAttacking()
+    {
+        anim.SetBool("IsAttacking", true);
+    }
+    public void StopAttacking()
+    {
+        anim.SetBool("IsAttacking", false);
+    }
+    public void DeathAnim()
+    {
+        anim.SetTrigger("Death");
     }
 }

@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyAnims : MonoBehaviour
 {
-    private Animator anim;
+    [SerializeField] private Enemy main;
     [SerializeField] NavMeshAgent agent;
+
+    private Animator anim;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -14,5 +16,9 @@ public class EnemyAnims : MonoBehaviour
     void Update()
     {
         anim.SetFloat("Velocity", agent.velocity.magnitude / agent.speed);
+    }
+    public void DeathAnim()
+    {
+        anim.SetTrigger("Death");
     }
 }

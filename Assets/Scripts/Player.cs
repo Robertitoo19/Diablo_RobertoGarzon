@@ -2,18 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, Idamagable
 {
+    [SerializeField] private float lifes;
+    [SerializeField] private float attackingDistance;
+    [SerializeField] private float attackDamage;
+    [SerializeField] private float interactDistance;
+    [SerializeField] private Image healthBar;
+
     private Camera cam;
     private NavMeshAgent agent;
     //ultimo sitio dnd cliqué con el raton.
     private Transform lastHit;
-    [SerializeField] private float interactDistance;
-    void Start()
+
+    private Transform currentTarget;
+    private PlayerVisual playerVisual;
+
+    private float actualLifes;
+
+    public PlayerVisual PlayerVisual { get => playerVisual; set => playerVisual = value; }
+
+    private void Awake()
     {
         cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
+        actualLifes = lifes;
     }
     void Update()
     {
@@ -39,28 +54,50 @@ public class Player : MonoBehaviour, Idamagable
     }
     private void CheckInteract()
     {
-        //si hay ultimo hit y tiene el script npc.
-        if (lastHit != null && lastHit.TryGetComponent(out IInteractable interactable))
+        if (lastHit)
         {
-            //actualiza distancia de parada.
-            agent.stoppingDistance = interactDistance;
-            //si hemos llegado al destino.
-            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            playerVisual.StopAttacking();
+            //si hay ultimo hit y tiene el script npc.
+            if (lastHit.TryGetComponent(out IInteractable interactable))
             {
-                interactable.interact(transform);
-                //borramos el historial del ultimo click
-                lastHit = null;
+                //actualiza distancia de parada.
+                agent.stoppingDistance = interactDistance;
+                //si hemos llegado al destino.
+                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    interactable.interact(transform);
+                    //borramos el historial del ultimo click
+                    lastHit = null;
+                }
+            }
+            //si no es un npc
+            else if (lastHit.TryGetComponent(out Idamagable damage))
+            {
+                currentTarget = lastHit;
+                agent.stoppingDistance = attackingDistance;
+                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    playerVisual.StartAttacking();
+                }
+            }
+            else
+            {
+                agent.stoppingDistance = 0;
             }
         }
-        //si no es un npc
-        else if (lastHit)
-        {
-            agent.stoppingDistance = 0f;
-        }
     }
-
+    public void Attack()
+    {
+        currentTarget.GetComponent<Idamagable>().ReceiveDamage(attackDamage);
+    }
     public void ReceiveDamage(float enemyDamage)
     {
-
+        lifes -= enemyDamage;
+        healthBar.fillAmount = actualLifes / lifes;
+        if (lifes <= 0)
+        {
+            Destroy(this);
+            playerVisual.DeathAnim();
+        }
     }
 }
