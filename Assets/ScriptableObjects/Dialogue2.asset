@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue2
   m_EditorClassIdentifier: 
   phrases:
-  - 'Ya puedes Acceder a la sala final y terminar con la oscuridad
+  - 'Ya puedes Acceder a la sala final y terminar con la oscuridad.
 
 '
   timebetLetters: 0.02

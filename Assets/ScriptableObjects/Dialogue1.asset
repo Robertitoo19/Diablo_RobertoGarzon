@@ -13,16 +13,15 @@ MonoBehaviour:
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
   phrases:
-  - "\xA1Ah, un visitante inesperado! Solo aquellos dignos se aventuran hasta aqui.
-    Si buscas gloria o fortuna, prueba tu valia enfrentandote al guardian del tercer
-    nivel y recuperando el cristal que protege."
+  - Ah, un visitante inesperado. Solo aquellos dignos se aventuran hasta aqui. Si
+    buscas gloria o fortuna, prueba tu valia enfrentandote al guardian del tercer
+    nivel y recuperando el cristal que protege.
   - El guardian del tercer nivel es una criatura feroz, su fuerza reside en la oscuridad
     que lo rodea.
-  - 'El cristal esta sellado en un pedestal de runas magicas. Para liberarlo, debes
+  - "El cristal esta sellado en un pedestal de runas magicas. Para liberarlo, debes
     colocar las tres piedras runicas que encontraras en las salas laterales. Cuidado,
-    cada piedra esta protegida por un acertijo o trampa.
-
-'
+    cada piedra esta protegida por un acertijo o trampa. Cuando las tengas vuelve
+    y detr\xE1s mia estar\xE1 la puerta de acceso \n"
   timebetLetters: 0.02
   hasMission: 1
   mission: {fileID: 11400000, guid: 06a4486284422924394d81d68f17ce80, type: 2}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerVisual : MonoBehaviour
 {
@@ -35,5 +36,9 @@ public class PlayerVisual : MonoBehaviour
     public void DeathAnim()
     {
         anim.SetTrigger("Death");
+    }
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(3);
     }
 }

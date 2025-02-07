@@ -11,7 +11,6 @@ public class Torch : MonoBehaviour, IInteractable
     [SerializeField] private Texture2D interactIcon;
     public void interact(Transform interactor)
     {
-        Debug.Log("Enciendo antorcha" + gameObject.name);
         torchPuzzle.TurnOnTorch(gameObject);
     }
     private void OnMouseEnter()

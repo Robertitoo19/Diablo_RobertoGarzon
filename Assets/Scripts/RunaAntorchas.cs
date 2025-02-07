@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Seta : MonoBehaviour, IInteractable
+public class RunaAntorchas : MonoBehaviour, IInteractable
 {
-    private Outline outline;
 
     [SerializeField] private Texture2D defaultIcon;
     [SerializeField] private Texture2D interactIcon;
@@ -13,14 +12,29 @@ public class Seta : MonoBehaviour, IInteractable
 
     [SerializeField] private MissionSO mission;
 
-    [SerializeField] private Riddle riddle;
+    private Outline outline;
+    private Collider coll;
     private void Awake()
     {
         outline = GetComponent<Outline>();
+        coll = GetComponent<Collider>();
     }
+    private void OnEnable()
+    {
+        TorchPuzzle.OnCorrectSecuence += ActiveObject;
+    }
+    private void OnDisable()
+    {
+        TorchPuzzle.OnCorrectSecuence -= ActiveObject;
+    }
+
+    private void ActiveObject()
+    {
+        coll.enabled = true;
+    }
+
     public void interact(Transform interactor)
     {
-        riddle.ShowRiddle();
         //aumentar la repeticion
         mission.actualRepetition++;
 
@@ -38,12 +52,18 @@ public class Seta : MonoBehaviour, IInteractable
     }
     private void OnMouseEnter()
     {
-        outline.enabled = true;
-        Cursor.SetCursor(interactIcon, Vector2.zero, CursorMode.Auto);
+        if (coll.enabled)
+        {
+            outline.enabled = true;
+            Cursor.SetCursor(interactIcon, Vector2.zero, CursorMode.Auto);
+        }
     }
     private void OnMouseExit()
     {
-        outline.enabled = false;
-        Cursor.SetCursor(defaultIcon, Vector2.zero, CursorMode.Auto);
+        if (coll.enabled)
+        {
+            outline.enabled = false;
+            Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
+        }
     }
 }
