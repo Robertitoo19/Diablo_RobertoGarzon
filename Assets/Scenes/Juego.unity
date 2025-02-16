@@ -50603,6 +50603,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3102037243414373183, guid: 0e2b13891f8544541b64164adc39f0f6,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6541748710797954290, guid: 0e2b13891f8544541b64164adc39f0f6,
         type: 3}
       propertyPath: m_Name
@@ -50611,7 +50616,7 @@ PrefabInstance:
     - target: {fileID: 6541748710797954290, guid: 0e2b13891f8544541b64164adc39f0f6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
